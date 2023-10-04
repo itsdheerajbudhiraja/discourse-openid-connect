@@ -95,6 +95,7 @@ module ::OmniAuth
 
           params[:scope] = options[:scope]
           session["omniauth.nonce"] = params[:nonce] = SecureRandom.hex(32)
+	  session["omniauth.pres_req_conf_id"] = params[:pres_req_conf_id] = "Discourse-Login-With-DICE-ID"	  
 
           options[:passthrough_token_options].each do |k|
             session["omniauth.param.#{k}"] = request.params[k.to_s] unless [nil, ""].include?(
